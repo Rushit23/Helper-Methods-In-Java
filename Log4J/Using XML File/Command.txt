@@ -1,0 +1,1 @@
+	private static Logger log = LogManager.getLogger(Prac.class.getName());

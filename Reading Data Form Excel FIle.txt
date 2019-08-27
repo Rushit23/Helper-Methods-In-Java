@@ -1,0 +1,33 @@
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+								Reading Data Form Excel FIle
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+poi.apache.org
+http://poi.apache.org/download.html#POI-4.1.0
+Binary Distribution  > Downlaod the ZIp FIle >poi-bin-4.1.0-20190412.zip
+
+
+Form  the Libraray Import All  the Jars To The project
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+		// Reading Data From Excel File
+				
+				//	path = "D:\\Test.xlsx";
+
+
+					public static String ExcelDataRead(String path) throws FileNotFoundException, IOException
+					{
+
+						FileInputStream files = new FileInputStream(new File(path));
+					   
+					 	
+						XSSFWorkbook workbook = new XSSFWorkbook(files);		 	
+					 	
+						XSSFSheet	sheet =	workbook.getSheetAt(0);
+						
+						String h1 = sheet.getRow(0).getCell(0).getStringCellValue();
+						return h1;
+					}

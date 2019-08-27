@@ -1,0 +1,87 @@
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+						Handle Untrusted Certificate Selenium
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Firefox
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
+ 
+public class SSLCertificate {
+ 
+public static void main(String[] args) {
+ 
+//It create firefox profile
+FirefoxProfile profile=new FirefoxProfile();
+ 
+// This will set the true value
+profile.setAcceptUntrustedCertificates(true);
+ 
+// This will open  firefox browser using above created profile
+WebDriver driver=new FirefoxDriver(profile);
+ 
+driver.get("pass the url as per your requirement");
+ 
+ 
+}
+ 
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+								CHROME
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+ // Create object of DesiredCapabilities class
+						 DesiredCapabilities cap=DesiredCapabilities.chrome();
+						  
+						 // Set ACCEPT_SSL_CERTS  variable to true
+						 cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+						  
+						 // Set the driver path
+						 System.setProperty("webdriver.chrome.driver","D:/Selenium-Drivers/Rj/chromedriver.exe"); 
+						  
+						 // Open browser with capability
+						 WebDriver driver=new ChromeDriver(cap);
+						 driver.get("https://www.cacert.org/");
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+									IE
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+// Create object of DesiredCapabilities class
+ 
+DesiredCapabilities cap=DesiredCapabilities.internetExplorer();
+ 
+// Set ACCEPT_SSL_CERTS  variable to true
+cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+ 
+// Set the driver path
+System.setProperty("webdriver.ie.driver","IE driver path");
+ 
+// Open browser with capability
+WebDriver driver=newInternetExplorerDriver(cap);
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+								SAFARI
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+// Create object of DesiredCapabilities class
+ 
+DesiredCapabilities cap=DesiredCapabilities.safari();
+ 
+// Set ACCEPT_SSL_CERTS  variable to true
+cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+ 
+// Set the driver path
+System.setProperty("webdriver.safari.driver","Safari driver path");
+ 
+// Open browser with capability
+WebDriver driver=new SafariDriver(cap);

@@ -1,0 +1,27 @@
+
+
+
+
+		Selenium 3 With Default Firefox
+
+		Download The Selenium StandAlone Server
+
+		DOwnload the Selenium And GeckoDriver Jars
+
+
+
+
+
+
+		 System.setProperty("webdriver.chrome.driver","D:/Selenium-Drivers/ChromeDriver/chromedriver.exe"); 
+
+		 DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+		capabilities.setCapabilities("marionette",true);
+
+		 WebDriver driver = new FirefoxDriver ();
+		 driver.get("https://www.skyscanner.ca/?");
+		 
+		
+		 
+		 Thread.sleep(5000);
+		 driver.quit();

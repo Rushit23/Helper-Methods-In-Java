@@ -1,0 +1,104 @@
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 							Handle OCR Image In Selenium Using Tesseract OCR
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Put it into Test Data Folder  If You Dont Have Create One
+
+Download : eng.TrainedData
+
+https://github.com/tesseract-ocr/tessdata/blob/master/eng.traineddata
+
+
+
+
+
+
+Jars:  https://jar-download.com/artifacts/net.sourceforge.tess4j/tess4j/4.2.1
+
+
+
+
+
+Maven Repository :
+
+https://mvnrepository.com/artifact/net.sourceforge.tess4j/tess4j/4.2.1
+
+<!-- https://mvnrepository.com/artifact/net.sourceforge.tess4j/tess4j -->
+<dependency>
+    <groupId>net.sourceforge.tess4j</groupId>
+    <artifactId>tess4j</artifactId>
+    <version>4.2.1</version>
+</dependency>
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+				  File imageFile = new File("D:\\Test\\insps.png");
+			        ITesseract instance = new Tesseract(); 
+
+			        // JNA Interface Mapping
+			        // ITesseract instance = new Tesseract1(); // JNA Direct Mapping
+			        instance.setDatapath("C:\\Users\\RUSHIT  PATEL\\eclipse-workspace\\Experiment\\TestData"); // path to tessdata directory
+
+			        try
+			        {
+			            String result = instance.doOCR(imageFile);
+			            System.out.println(result);
+			        }
+			        catch (TesseractException e) 
+			        {
+			            System.err.println(e.getMessage());
+			        }
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+							Image Reading At RunTime
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------			 
+			File src = driver.findElement(By.id("captchaImg")).getScreenshotAs(OutputType.FILE);
+			
+			String path = System.getProperty("user.dir")+"Screenshots/cat.png";
+			
+			FileHandler.copy(src, new File(path));
+			
+			  File imageFile = new File(path);
+		        ITesseract instance = new Tesseract(); 
+
+		        // JNA Interface Mapping
+		        // ITesseract instance = new Tesseract1(); // JNA Direct Mapping
+		        instance.setDatapath("C:\\Users\\RUSHIT  PATEL\\eclipse-workspace\\Experiment\\TestData"); // path to tessdata directory
+
+		        try
+		        {
+		            String result = instance.doOCR(imageFile);
+		            System.out.println(result);
+		            
+		            String finaltext=result.split("below")[1].replaceAll("[^a-zA-Z0-9]","");
+		            System.out.println(finaltext);
+		            driver.findElement(By.id("abcd")).sendKeys(finaltext);
+		        }
+		        catch (TesseractException e) 
+		        {
+		            System.err.println(e.getMessage());
+		        }
+			
+			
+			
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+In Case  If You Require  To Split  The Text  Use .Split Method
+
+
+String []myarr=str.split("below");
+
+  System.out.println(myarr[1]);
+
+  String mydata= myarr[1].replaceAll("[^a-zA-Z]","");
+
+    System.out.println(mydata);
+
+

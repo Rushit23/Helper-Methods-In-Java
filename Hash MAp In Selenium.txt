@@ -1,0 +1,84 @@
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+								Hash MAP In Selenium
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+Hash Map is Used to Create  The Key Value Parameters
+
+
+Hash Map, Hash table, Tree Hash Map , Linked Hash Map
+
+
+Return  type  of  Split  Method iS String Array
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+	
+	public static HashMap<String,String> getCredentialMap()
+	{
+		HashMap<String,String> usermap = new HashMap<String,String>();
+		
+		usermap.put("Admin", "abc@gmail.com:abc123");
+		usermap.put("User", "abcdf@gmail.com:abc123");
+		
+		return usermap;
+		
+	}
+		
+		
+		public static String getUserName(String role)
+		{
+			String credentials =getCredentialMap().get(role);
+			
+			return credentials.split(":")[0];
+			
+		}
+	
+
+
+
+
+		public static String getPassword(String role)
+			{
+				String credentials =getCredentialMap().get(role);
+				
+				return credentials.split(":")[1];
+				
+			}
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 				// Get  All the Keys
+						 
+						 
+							HashMap<String,String> usermap = new HashMap<String,String>();
+							
+							usermap.put("Admin", "abc@gmail.com:abc123");
+							usermap.put("User", "abcdf@gmail.com:abc123");
+						 
+							Set <String> keys= usermap.keySet();
+							
+							
+							for (String i :keys)
+								{
+									
+									System.out.println(i + " : " + usermap.get(i) );
+								}
+							
+							
+							// Set key Value
+							
+							
+							Set<Map.Entry<String, String>> values =usermap.entrySet();
+							
+							for (Map.Entry<String, String> i :values)
+								{
+									
+									System.out.println(i.getKey() + " : " + i.getValue() );
+									i.setValue("abc")
+								}

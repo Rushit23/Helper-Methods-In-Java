@@ -1,0 +1,99 @@
+  public class pra
+    {
+
+        public static void main(String[] args) 
+            {
+                
+                String s = "The rains have started here";
+                String s1 = "The rains Have started here";
+
+                System.out.println(s.length());
+                
+                System.out.println(s.charAt(5));
+                
+                System.out.println(s.indexOf('s')); //1st occurrence of s
+                
+                System.out.println(s.indexOf('s', 9)); //2nd occurrence of s
+                
+                
+                System.out.println(s.indexOf('s', s.indexOf('s', s.indexOf('s')+1)+1)); // 3rd occurence
+                
+                 FindNthIndexOfACharacter('s', "The rains have started here in selenium", 3);
+
+                
+                System.out.println(s.indexOf("have"));
+                
+                System.out.println(s.indexOf("hello"));
+                
+                System.out.println(s.equals(s1));
+                
+                System.out.println(s.equalsIgnoreCase(s1));
+                
+                System.out.println(s.toUpperCase());
+                
+                //sub string:
+                System.out.println(s.substring(0, 9));
+                
+                //trim:
+                String t = "     Hello World    ";
+                
+                System.out.println(t.trim());
+                
+                //replace:
+                String u = "Hello world";
+                System.out.println(u.replace(" ", "-"));
+                System.out.println(t.replace(" ", ""));
+                
+                String d = "01-01-1990";
+                System.out.println(d.replace("-", "/"));
+                
+                
+                
+                // Split  
+                
+                String test= "Hello_World_I_QA";
+                
+                String testval[]=test.split("_");
+                
+                for(int i=0;i<testval.length;i++)
+                    {
+                        
+                        System.out.println(testval[i]);
+                    }
+                
+                
+                
+            }
+                
+         private static void FindNthIndexOfACharacter(char c, String str, int position) {
+
+             int count = 0;
+              //str = str.replaceAll("\\s", ""); -- uncomment this line if you want to remove spaces
+              for (int i = 0; i < str.length(); i++) {
+               if (str.toUpperCase().charAt(i) == Character.toUpperCase(c)) {
+                count += 1;
+                if (count == position) {
+                 System.out.println(i);
+                 break;
+                }
+               }
+
+              }
+
+         }}
+
+    
+
+
+
+        int a = 100;
+        int b = 200;
+        
+        String x = "Hello";
+        String y = "World";
+        
+        System.out.println(a+b);
+        System.out.println(x+y);
+        System.out.println(a+b+x+y); //300HelloWorld 
+        System.out.println(x+y+a+b); //HellowWorld100200
+        System.out.println(x+y+(a+b));
